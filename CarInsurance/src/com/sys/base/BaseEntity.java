@@ -3,8 +3,7 @@ package com.sys.base;
 
 /**
  * 
- * @author chenchuan
- * @date 2016年1月22日 数据对象基类
+ *数据对象基类
  */
 public class BaseEntity {
 
@@ -30,7 +29,7 @@ public class BaseEntity {
 	public void setDelflag(String delflag) {
 		this.delflag = delflag;
 	}
-
+	
 	public boolean notNull(){
 		return this!=null&&this.getId()!=null;
 	}

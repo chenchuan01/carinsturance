@@ -13,6 +13,8 @@ import com.sys.db.DBConstants;
 
 /**
  *
+ *@author chenchuan
+ *@date 2016年2月16日
  *CommonUtil.java
  *系统功能工具方法
  */
@@ -97,9 +99,10 @@ public class CommonUtil {
                     String value = switchFieldValue(obj, name, type)+ DBConstants.FILD_SPLIT;
                     fieldValues.append(value);
                 } catch (IllegalArgumentException e) {
-                LogUtil.error(CommonUtil.class, "反射属性获取属性值出错", new AppExpection(
-						"CommonUtil.recursive(Object,Class, StringBulider, StringBulider)", 
-						"反射属性获取属性值出错", e));
+                	LogUtil.error(CommonUtil.class, 
+        					new AppExpection(
+        							"CommonUtil.recursive(Object,Class, StringBulider, StringBulider)", 
+        							"反射属性获取属性值出错", e));
                 }
             }
             return recursive(obj,_class.getSuperclass(),fieldNames,fieldValues);
@@ -141,7 +144,7 @@ public class CommonUtil {
 				}
 			}
 		} catch (Exception e) {
-			LogUtil.error(CommonUtil.class, "",
+			LogUtil.error(CommonUtil.class, 
 					new AppExpection(
 							"CommonUtil.switchFieldValue(T, String, String)", 
 							"反射属性获取属性值出错", e));
@@ -149,14 +152,14 @@ public class CommonUtil {
 		
 		return fidldValue;
 	}
-	public static String format(String msg ,Object... params) {
+	public static String format(String msg ,String... params) {
 		if(params==null||params.length<=0){
 			return msg;
 		}else{
 			String temp = msg;
 			for (int i = 0; i < params.length; i++) {
 				String holderStr = "{"+i+"}";
-				temp = temp.replace(holderStr,params[i]+"");
+				temp = temp.replace(holderStr, params[i]);
 			}
 			return temp;
 		}
@@ -170,37 +173,5 @@ public class CommonUtil {
 		}
 		return list;
 	}
-	private static void perm(String[] buf, int start, int end,List<String> combineWords,String tempWords) {
-		if(start==end){
-			return;
-		}
-		String temp = tempWords;
-		if(start<end){
-			for (int i = start; i < end;i++) {
-				if(StringUtil.isNull(temp)){
-					temp = temp+ buf[i];
-				}else{
-					temp = temp +"/"+ buf[i];
-				}
-				combineWords.add(temp);
-			}
-		}else{
-			start++;
-			perm(buf, start, end, combineWords, tempWords);
-		}
-		
-    }
-	public static List<String> combineWords(String[] keyWords) {
-		List<String> combineWords = new ArrayList<String>();
-		for (int i = 0; i < keyWords.length; i++) {
-			perm(keyWords, i, keyWords.length, combineWords,"");
-		}
-		
-		
-		return combineWords;
-	}
-	public static void main(String[] args) {
-		String[] like = {"讲","个","笑话"};
-		System.out.println(combineWords(like));
-	}
+	
 }

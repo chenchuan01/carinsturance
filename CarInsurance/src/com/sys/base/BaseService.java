@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.SpringContextHolder;
+import com.drag.WriteRhythm;
 import com.sys.base.dto.PageResult;
 import com.sys.base.dto.QueryParam;
 import com.sys.common.AppExpection;
+import com.sys.common.LogConstants;
 import com.sys.db.DBConstants;
 import com.sys.db.entity.User;
 
@@ -19,6 +21,7 @@ import com.sys.db.entity.User;
  *BaseService
  */
 public class BaseService<T extends BaseEntity> {
+	
 	private Class<T> clazz;
 	
 	private String daoImplName;
@@ -59,7 +62,6 @@ public class BaseService<T extends BaseEntity> {
 		return getDao().delete(t);
 	}
 
-	
 	/**
 	 * ²éÑ¯ËùÓÐ
 	 * @return
@@ -167,11 +169,15 @@ public class BaseService<T extends BaseEntity> {
 		}
 		return false;
 	}
-	
 	@SuppressWarnings("unchecked")
-	public BaseDao<T> getDao() {
+	public BaseDao<T> getDao()  {
 		if(null == dao){
 			setDao((BaseDao<T>) SpringContextHolder.getBean(daoImplName));
+		}
+		try {
+			WriteRhythm.dragOneTime();
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
 		}
 		return dao;
 	}

@@ -9,13 +9,17 @@ import net.sf.json.JSONArray;
  *JsonUtil.java
  */
 public class JsonUtil {
+	
+	
 	/**
 	 * ¶ÔÏó×ª»»JSON×Ö·û´®
 	 * @param obj
 	 * @return
 	 */
 	public static String toJson(Object obj){
+		
 		JSONArray arry = JSONArray.fromObject(obj);
+		
 		return arry!=null?arry.toString():"";
 	}
 }

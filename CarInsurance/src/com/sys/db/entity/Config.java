@@ -3,8 +3,6 @@ package com.sys.db.entity;
 import com.sys.base.BaseEntity;
 
 /**
- * @author chenchuan
- * @date 2016年1月22日
  * 系统配置
  */
 public class Config extends BaseEntity{

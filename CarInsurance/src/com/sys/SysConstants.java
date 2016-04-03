@@ -34,15 +34,10 @@ public class SysConstants {
 	 * 无效
 	 */
 	public static final Integer VALID_OFF =0;
-
+	
 	/**
-	 * 系统用户session变量名
+	 * SESSION_USER
 	 */
-	public static final String SYSUSER = "sysuser";
-
-	/**
-	 * namespace
-	 */
-	public static final String FORM_SPACE = "bak/form/";
+	public static final String SESSION_USER="sysuser";
 	
 }

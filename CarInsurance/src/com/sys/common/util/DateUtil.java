@@ -15,7 +15,7 @@ public class DateUtil {
 	/**
 	 * 统一时间保持格式
 	 */
-	public static final String TIMEFORMAT="yyyy-MM-dd HH:mm:ss";
+	public static final String TIMEFORMAT="yyyy-MM-dd HH:mm";
 	/**
 	 * 统一日期保持格式
 	 */
@@ -191,6 +191,17 @@ public class DateUtil {
 		calendar.add(calculatemetric, range);
 		
 		return formatDate(calendar.getTime());
+	}
+	/**
+	 * 时间后减前计算时间差
+	 * @param endDate
+	 * @param startDate
+	 * @return
+	 */
+	public static long subtractionDate(String endDateStr, String startDateStr) {
+		Date end = parsDate(endDateStr);
+		Date start = parsDate(startDateStr);
+		return end.getTime()-start.getTime();
 	}
 
 }

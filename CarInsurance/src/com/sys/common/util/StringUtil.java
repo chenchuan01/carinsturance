@@ -2,6 +2,8 @@ package com.sys.common.util;
 
 
 /**
+ * @author chenchuan
+ * @date 2016年1月25日
  * 字符串处理工具类
  * StringUtil.java
  */
