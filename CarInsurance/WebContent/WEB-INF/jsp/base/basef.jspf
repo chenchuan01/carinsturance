@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@include file="modal.jspf" %>
+<%@include file="loading.jspf" %>
+<script src="${ctx }/js/jquery.min.js"></script>
+<script src="${ctx }/js/bootstrap.min.js"></script>
+<script src="${ctx }/js/site.js"></script>
+<script src="${ctx }/js/common.js"></script>

@@ -218,3 +218,17 @@ h1 {
 	z-index: 1002;
 	overflow: auto;
 }
+.validNoBorder{
+	border-color: #ff5454;
+}
+.validYesBorder{
+	border-color:#79c447;
+}
+.validMsg {
+	color: #ff5454;
+	word-wrap: break-word;
+	position: absolute;
+	display: block;
+    /* top: 34px;
+    left:0px; */
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
+<html lang="en"><!--<![endif]--> 
+	<head>
+		<meta charset="utf-8">
+		<title>Home - CarInsurance</title>
+		<meta name="查看port" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/site.css" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> 
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+						</a> <a class="brand" href="#">汽车保险</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li>
+									<a href="home.html">我的车保</a>
+								</li>
+								<li>
+									<a href="insuranceSale.html">购买保险</a>
+								</li>
+								<li  class="active">
+									<a href="help.htm">撤销投保</a>
+								</li>
+							</ul>
+							<ul class="nav pull-right">
+								<li>
+									<a href="profile.htm">@车主001</a>
+								</li>
+								<li>
+									<a href="login.htm">Logout</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<div class="well" style="padding: 8px 0;">
+						<ul class="nav nav-list">
+							<li class="nav-header">
+								汽车保险
+							</li>
+							<li>
+								<a href="home.html"><i class="icon-home"></i> 我的车保</a>
+							</li>
+							<li>
+								<a href="insuranceSale.html"><i class="icon-folder-open"></i> 购买保险</a>
+							</li>
+							<li  class="active">
+								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤销投保</a>
+							</li>
+							<li class="nav-header">
+								系统账户
+							</li>
+							<li>
+								<a href="profile.htm"><i class="icon-user"></i>个人信息</a>
+							</li>
+							<li>
+								<a href="settings.htm"><i class="icon-cog"></i>	密码修改</a>
+							</li>
+							<li class="divider">
+							</li>
+							<li>
+								<a href="help.htm"><i class="icon-sign-out"></i> 退出登录</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="span9">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>
+									车辆
+								</th>
+								<th>
+									险种
+								</th>
+								<th>
+									投保日期
+								</th>
+								<th>
+									有效期
+								</th>
+								<th>
+									状态
+								</th>
+								<th>
+									操作
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									意外险
+								</td>
+								<td>
+									2016-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									保险生效
+								</td>
+								<td>
+									<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									划痕险
+								</td>
+								<td>
+									2012-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									已撤销
+								</td>
+								<td>
+									<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									较强险
+								</td>
+								<td>
+									2016-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									保险生效
+								</td>
+								<td>
+									<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									划痕险
+								</td>
+								<td>
+									2012-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									已撤销
+								</td>
+								<td>
+									<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									自燃险
+								</td>
+								<td>
+									2016-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									保险生效
+								</td>
+								<td>
+									<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									京A:00001
+								</td>
+								<td>
+									划痕险
+								</td>
+								<td>
+									2012-01-08
+								</td>
+								<td>
+									1年
+								</td>
+								<td>
+									已撤销
+								</td>
+								<td>
+									<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<ul>
+							<li class="disabled">
+								<a href="#">&laquo;</a>
+							</li>
+							<li class="active">
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 申请撤保 -->
+		<div id="cancelModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="cancelModalLabel">申请撤保</h3>
+		  </div>
+		  <div class="modal-body">
+		    <form id="addCarForm" class="form-horizontal">
+			  <div class="control-group">
+			    <label class="control-label" for="carplate">车辆牌照</label>
+			    <div class="controls">
+			      <p id="carplate">京A:00001</p>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="engineNum">撤保理由</label>
+			    <div class="controls">
+			     <textarea id="carplate" class="input-xlarge" placeholder="请填写撤保事由，我们将进行审计核查"></textarea>
+			    </div>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+		    <button class="btn btn-primary">提交申请</button>
+		  </div>
+		</div>
+		<!-- 审核详细 -->
+		<div id="detailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="cancelModalLabel">撤保信息</h3>
+		  </div>
+		  <div class="modal-body">
+		    <form id="addCarForm" class="form-horizontal">
+			  <div class="control-group">
+			    <label class="control-label" for="carplate">车辆牌照</label>
+			    <div class="controls">
+			      <p id="carplate">京A:00001</p>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="engineNum">撤保理由</label>
+			    <div class="controls">
+			     <p id="carplate" class="input-xlarge" >理赔不够快</p>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="engineNum">审核状态</label>
+			    <div class="controls">
+			     <p id="carplate"  >审核通过</p>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="engineNum">申请时间</label>
+			    <div class="controls">
+			     <p id="carplate" >2016-03-29</p>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="engineNum">通过时间</label>
+			    <div class="controls">
+			     <p id="carplate" >2016-03-30</p>
+			    </div>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+		  </div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/site.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+	</body>
+</html>

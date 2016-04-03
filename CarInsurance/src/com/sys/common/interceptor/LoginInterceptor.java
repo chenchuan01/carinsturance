@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.sys.SysConstants;
 import com.sys.common.util.LogUtil;
 import com.sys.db.entity.User;
 
@@ -25,12 +26,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}
 		}
 		if(!flag){
-			User user = (User) request.getSession().getAttribute("sysuser");
+			User user = (User) request.getSession().getAttribute(SysConstants.SESSION_USER);
 			if (user != null){
 				flag = true;
 				
 			}else{
-				response.sendRedirect(request.getContextPath()+"/login.do");
+				response.sendRedirect(request.getContextPath());
 				flag = false;
 			}
 		}

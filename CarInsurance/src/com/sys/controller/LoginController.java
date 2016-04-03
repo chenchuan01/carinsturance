@@ -97,15 +97,17 @@ public class LoginController extends BaseController {
 				|| StringUtil.isNull(user.getPassword())) {
 			return forwordExpPage(m,
 					new AppExpection("LoginController.registUser(User,Model)",
-							"注册用户对象为空！请检查输入！"), REGISTPAGE);
+							"注册用户对象为空！请检查输入！"), LOGINPAGE);
 		}
 		boolean result = userService.userRegist(user) != null;
 		if (!result) {
 			return forwordExpPage(m, new AppExpection(
 					"LoginController.registUser(User,Model)",
-					"注册新用户出现异常！请联系管理员！"), REGISTPAGE);
+					"注册新用户出现异常！请联系管理员！"), LOGINPAGE);
 		}
-		return LOGINPAGE;
+		return forwordExpPage(m, new AppExpection(
+				"LoginController.registUser(User,Model)",
+				"新用户注册成功！"), LOGINPAGE);
 	}
 
 	@RequestMapping(value = "logout")
