@@ -28,7 +28,7 @@
 							</ul>
 							<ul class="nav pull-right">
 								<li>
-									<a href="#userModal" data-toggle="modal">@车主001</a>
+									<a href="#userModal" data-toggle="modal">@${sysuser.name }</a>
 								</li>
 								<li>
 									<a href="login.htm">Logout</a>

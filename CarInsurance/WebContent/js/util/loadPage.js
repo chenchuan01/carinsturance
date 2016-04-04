@@ -10,6 +10,14 @@ var initOther=function(){
 	cleanForm();
     /**bootstrap mual init*/
     bootstrapInit();
+    
+    navsetActive();
+};
+var navsetActive=function(){
+	$('.nav li').click(function(){
+		$('.nav li').removeClass('active');
+		$(this).addClass('active');
+	});
 };
 var cleanForm=function(){
 	$('.cancel').click(function(){

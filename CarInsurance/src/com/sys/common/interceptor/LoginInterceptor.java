@@ -31,7 +31,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				flag = true;
 				
 			}else{
-				response.sendRedirect(request.getContextPath());
+				response.sendRedirect(request.getContextPath()+"/login.do");
 				flag = false;
 			}
 		}
