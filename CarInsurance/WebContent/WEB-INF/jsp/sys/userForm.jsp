@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<h3>个人信息</h3>
 <form id="userInfo" class="form-horizontal" action="sys/userModify.do" method="post">
   <div class="control-group">
     <label class="control-label" for="name">姓名</label>
@@ -29,6 +28,10 @@
 		</div>
     </div>
   </div>
-  <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-     <button class="btn btn-primary" onclick="">保存</button>
+  <div class="control-group">
+  	<div class="controls">
+  	  <button class="btn btn-primary" onclick="">保存</button>
+	  <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+	</div>
+  </div>
 </form>

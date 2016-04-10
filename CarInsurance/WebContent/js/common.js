@@ -157,7 +157,6 @@ var commFillInfo = function(dataMap,selector,type){
 		}
 	});
 };
-/**自定义热键*/
 /**时间日期控件*/
 //$import(basePath+'js/util/dateTimePicker.js');
 /**Ajax 封装*/
@@ -168,7 +167,15 @@ $import(basePath+'js/util/customValid.js');
 $import(basePath+'js/util/dialogHintWin.js');
 /**页面初始化 封装*/
 $import(basePath+'js/util/loadPage.js');
-
+/************Jump Page**************/
+function pageView(url){
+	ajaxHtml(url, {}, setContent, function(){});
+}
+function setContent(html){
+	$('#pageContent').html(html);
+	page(1);
+	bootstrapInit();
+}
 /************Test DATA**************/
 var showTest=function(){
 	$(".dataTest").toggle();

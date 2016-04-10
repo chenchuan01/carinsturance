@@ -91,10 +91,10 @@
 								系统账户
 							</li>
 							<li>
-								<a href="#userModal" data-toggle="modal"><i class="icon-user"></i>个人信息</a>
+								<a href="javascript:;" onclick="win('个人信息','sys/userForm.do')" ><i class="icon-user"></i>个人信息</a>
 							</li>
 							<li>
-								<a href="#pwdModal" data-toggle="modal"><i class="icon-cog"></i>密码修改</a>
+								<a href="javascript:;" onclick="win('密码修改','sys/pwdModify.do')"><i class="icon-cog"></i>密码修改</a>
 							</li>
 							<li class="divider">
 							</li>
@@ -105,7 +105,7 @@
 					</div>
 					
 				</div>
-				<div class="span9">
+				<div id="pageContent" class="span9">
 					<h2>
 						我的车保
 					</h2>
@@ -275,50 +275,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- 个人信息 -->
-		<div id="userModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		  </div>
-		  <div class="modal-body">
-		   
-		  <div class="modal-footer">
-		    
-		  </div>
-		</div>
-		<!-- 密码修改 -->
-		<div id="pwdModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		    <h3 id="myModalLabel">密码修改</h3>
-		  </div>
-		  <div class="modal-body">
-		    <form id="addCarForm" class="form-horizontal">
-			  <div class="control-group">
-			    <label class="control-label" for="name">登录账号</label>
-			    <div class="controls">
-			      <div class="input-prepend">
-					  <span class="add-on"><i class="icon-user"></i></span>
-					  <input class="span2" id="name" type="text" placeholder="Name" value="cz001" readonly="readonly">
-					</div>
-			    </div>
-			  </div>
-			  <div class="control-group">
-			    <label class="control-label" for="name">新密码</label>
-			    <div class="controls">
-			      <div class="input-prepend">
-					  <span class="add-on"><i class="icon-tag"></i></span>
-					  <input class="span2" id="name" type="password" placeholder="New Password" value="">
-					</div>
-			    </div>
-			  </div>
-			</form>
-		  </div>
-		  <div class="modal-footer">
-		    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-		    <button class="btn btn-primary">保存</button>
-		  </div>
 		</div>
 		<%@include file="base/basef.jspf" %>
 	</body>
