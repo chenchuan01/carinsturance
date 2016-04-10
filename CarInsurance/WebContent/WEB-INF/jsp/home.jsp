@@ -16,15 +16,21 @@
 						</a> <a class="brand" href="#">汽车保险</a>
 						<div class="nav-collapse">
 							<ul class="nav">
-								<li class="active">
-									<a href="home.html">我的车保</a>
+								<li class="dropdown">
+									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">我的保险 <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li class="active">
+											<a href="home.html">我的车保</a>
+										</li>
+										<li>
+											<a href="insuranceSale.html">购买保险</a>
+										</li>
+										<li>
+											<a href="insuranceCancel.html">撤销投保</a>
+										</li>
+									</ul>
 								</li>
-								<li>
-									<a href="insuranceSale.html">购买保险</a>
-								</li>
-								<li>
-									<a href="insuranceCancel.html">撤销投保</a>
-								</li>
+								
 							</ul>
 							<ul class="nav pull-right">
 								<li>
@@ -46,13 +52,40 @@
 								汽车保险
 							</li>
 							<li class="active">
-								<a href="home.html"><i class="icon-white icon-home"></i> 我的车保</a>
+								<a href="home.html"><i class="icon-home"></i> 我的车保</a>
 							</li>
 							<li>
 								<a href="insuranceSale.html"><i class="icon-folder-open"></i> 购买保险</a>
 							</li>
 							<li>
 								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤销投保</a>
+							</li>
+							<li class="nav-header">
+								保险管理
+							</li>
+							<li>
+								<a href="insuranceCancel.html"><i class="icon-check"></i> 投保查询</a>
+							</li>
+							<li>
+								<a href="insuranceCancel.html"><i class="icon-check"></i> 报险管理</a>
+							</li>
+							<li>
+								<a href="insuranceCancel.html"><i class="icon-check"></i> 保险过户</a>
+							</li>
+							<li>
+								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤保审核</a>
+							</li>
+							<li class="nav-header">
+								系统功能
+							</li>
+							<li>
+								<a href="javascript:;"><i class="icon-check"></i>用户管理</a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="icon-check"></i>险种设置</a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="icon-check"></i>系统配置</a>
 							</li>
 							<li class="nav-header">
 								系统账户
