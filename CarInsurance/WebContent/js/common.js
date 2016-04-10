@@ -222,9 +222,10 @@ var doSaveInfo =function(){
 
 var save=function(formId){
 	var params = getParams(formId);
-	ajaxLoad(getUrl(formId),params,function(){
+	ajaxData(getUrl(formId),params,function(){
+		$('#formModal').modal('hide');
 		cfm('保存修改成功!',function(){
-			$('#formModal').modal('hide');
+			$('#msgModal').modal('hide');
 			if($('#search')&&$('#search')!=null&&$('#search')!='undefined'){
 				page(1);
 			}

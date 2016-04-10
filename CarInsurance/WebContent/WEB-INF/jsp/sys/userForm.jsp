@@ -6,7 +6,8 @@
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-user"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Name" value="${sysuser.name }" valid="requried">
+		  <input class="span2" id="name" type="text" placeholder="Name" value="${user.name }" valid="requried">
+		  <input type="hidden" name="id" value="${user.id }"/>
 		</div>
     </div>
   </div>
@@ -15,7 +16,7 @@
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-tag"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Tel." value="${sysuser.tel }">
+		  <input class="span2" id="name" type="text" placeholder="Tel." value="${user.tel }">
 		</div>
     </div>
   </div>
@@ -24,14 +25,14 @@
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-envelope"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Email" value="${sysuser.email }">
+		  <input class="span2" id="name" type="text" placeholder="Email" value="${user.email }">
 		</div>
     </div>
   </div>
   <div class="control-group">
   	<div class="controls">
-  	  <button class="btn btn-primary" onclick="">保存</button>
-	  <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+  	  <button type="button" class="btn btn-primary" onclick="valid('#userInfo',save)">保存</button>
+	  <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
 	</div>
   </div>
 </form>

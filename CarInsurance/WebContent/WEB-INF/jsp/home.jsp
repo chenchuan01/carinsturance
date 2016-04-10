@@ -37,7 +37,7 @@
 									<a href="#userModal" data-toggle="modal">@${sysuser.name }</a>
 								</li>
 								<li>
-									<a href="login.htm">Logout</a>
+									<a href="login/logout.do">Logout</a>
 								</li>
 							</ul>
 						</div>
@@ -91,15 +91,15 @@
 								系统账户
 							</li>
 							<li>
-								<a href="javascript:;" onclick="win('个人信息','sys/userForm.do')" ><i class="icon-user"></i>个人信息</a>
+								<a href="javascript:;" onclick="win('个人信息','sys/userForm.do?id=${sysuser.id}')" ><i class="icon-user"></i>个人信息</a>
 							</li>
 							<li>
-								<a href="javascript:;" onclick="win('密码修改','sys/pwdModify.do')"><i class="icon-cog"></i>密码修改</a>
+								<a href="javascript:;" onclick="win('密码修改','sys/pwdModify.do?id=${sysuser.id}')"><i class="icon-cog"></i>密码修改</a>
 							</li>
 							<li class="divider">
 							</li>
 							<li>
-								<a href="help.htm"><i class="icon-sign-out"></i> 退出登录</a>
+								<a href="login/logout.do"><i class="icon-sign-out"></i> 退出登录</a>
 							</li>
 						</ul>
 					</div>

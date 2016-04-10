@@ -81,7 +81,7 @@ var msg= function(title,msgStr,success,cancle){
 	if(!title){
 		title = "";
 	}
-	var modalId = "#formModal";
+	var modalId = "#msgModal";
 	//title
 	$(modalId+' .modal-title').text(title);
 	$(modalId+' .modal-body').html('');

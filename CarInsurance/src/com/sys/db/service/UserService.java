@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.sys.base.BaseService;
 import com.sys.common.AppExpection;
+import com.sys.common.util.StringUtil;
 import com.sys.db.dao.UserDao;
 import com.sys.db.entity.User;
 
@@ -34,7 +35,9 @@ public class UserService extends BaseService<User>{
 	 * @throws AppExpection 
 	 */
 	public User userUpdate(User user) throws AppExpection {
-		userDao.encryption(user);
+		if(StringUtil.isNotNull(user.getPassword())){
+			userDao.encryption(user);
+		}
 		userDao.update(user);
 		return user;
 	}

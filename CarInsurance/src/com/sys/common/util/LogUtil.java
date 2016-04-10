@@ -84,13 +84,13 @@ public class LogUtil {
 	 */
 	public static void infoDB(Class<?> clazz, String oper, String optype,
 			String methodName, String context, Object... params) {
-		try {
+		/*try {
 			Log log = new Log(DateUtil.getNow(), oper, optype,
 					LogConstants.LEVEL_INFO, methodName, context, params);
 			getDBSvr().saveEntity(log);
 		} catch (Exception e) {
 			error(clazz, new AppExpection("","日志保存错误",e));
-		}
+		}*/
 		
 		info(clazz, methodName, context, params);
 	}
@@ -134,13 +134,13 @@ public class LogUtil {
 	 */
 	public static void errorDB(Class<?> clazz, String oper, String optype,
 			String methodName, String context, Object... params) {
-		try {
+		/*try {
 			Log log = new Log(DateUtil.getNow(), oper, optype,
 					LogConstants.LEVEL_INFO, methodName, context, params);
 			getDBSvr().saveEntity(log);
 		} catch (Exception e) {
 			error(clazz, new AppExpection("", "日志保存出错", e));
-		}
+		}*/
 		
 		error(clazz, methodName, context, params);
 	}
@@ -170,10 +170,10 @@ public class LogUtil {
 		error(clazz, context, e);
 	}
 
-	private static LogService getDBSvr() {
+	/*private static LogService getDBSvr() {
 		if (dbSvr == null) {
 			dbSvr = SpringContextHolder.getBean("logService");
 		}
 		return dbSvr;
-	}
+	}*/
 }
