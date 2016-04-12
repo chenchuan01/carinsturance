@@ -6,20 +6,16 @@ import org.slf4j.LoggerFactory;
 import com.SpringContextHolder;
 import com.sys.SysConstants;
 import com.sys.common.AppExpection;
-import com.sys.common.LogConstants;
 import com.sys.common.Params;
-import com.sys.db.entity.Log;
-import com.sys.db.service.LogService;
 
 /**
  * @author chenchuan
- * @date 2016年1月25日 日志记录工具类 LogUtil.java
+ * @date 2016年1月25日 
+ * 日志记录工具类 LogUtil.java
  */
 public class LogUtil {
 
 	private static Logger logger;
-	private static LogService dbSvr;
-	
 	private static Params sysParams = SpringContextHolder.getBean("params");
 
 	/**
@@ -31,7 +27,8 @@ public class LogUtil {
 	 */
 	public static void info(Class<?> clazz, String context, Object... params) {
 		logger = LoggerFactory.getLogger(clazz);
-		logger.info(context, params);
+		context = CommonUtil.format(context, params);
+		logger.info(context);
 	}
 	/**
 	 * info级别

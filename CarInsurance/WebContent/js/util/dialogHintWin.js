@@ -89,15 +89,25 @@ var msg= function(title,msgStr,success,cancle){
 	$(modalId+' .modal-footer').html('');
 	if(typeof(success)=='function'){
 		$(modalId+' .modal-footer').append('<a id="sucBtn" class="btn btn-primary">确定</a>');
-		$('#sucBtn').click(success);
-	}else if(typeof(cancle)=='function'){
+	}
+	if(typeof(cancle)=='function'){
 		$(modalId+' .modal-footer').append('<a id="errBtn" class="btn">取消</a>');
-		$('#errBtn').click(cancle);
-	}else{
+	}
+	if(typeof(success)!='function'&&typeof(cancle)=='function'){
 		$(modalId+' .modal-footer').append('<a id="closeBtn" class="btn">关闭</a>');
+	}
+	
+	$(modalId).modal('toggle');
+	
+	if(typeof(success)=='function'){
+		$('#sucBtn').click(function(){success();});
+	}
+	if(typeof(cancle)=='function'){
+		$('#errBtn').click(function(){cancle();});
+	}
+	if(typeof(success)!='function'&&typeof(cancle)=='function'){
 		$('#closeBtn').click(closeMsg);
 	}
-	$(modalId).modal('toggle');
 };
 var closeMsg=function(){
 	var modalId = "#formModal";

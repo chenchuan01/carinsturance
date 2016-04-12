@@ -20,7 +20,7 @@
 									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">我的保险 <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li class="active">
-											<a href="home.html">我的车保</a>
+											<a href="javascript:;" onclick="pageView('home/myInsurance.do?custom_id=${sysuser.id}');">我的车保</a>
 										</li>
 										<li>
 											<a href="insuranceSale.html">购买保险</a>
@@ -52,7 +52,7 @@
 								汽车保险
 							</li>
 							<li class="active">
-								<a href="home.html"><i class="icon-home"></i> 我的车保</a>
+								<a href="javascript:;" onclick="pageView('home/myInsurance.do?custom_id=${sysuser.id}');"><i class="icon-home"></i> 我的车保</a>
 							</li>
 							<li>
 								<a href="insuranceSale.html"><i class="icon-folder-open"></i> 购买保险</a>
@@ -79,7 +79,7 @@
 								系统功能
 							</li>
 							<li>
-								<a href="javascript:;"><i class="icon-check"></i>用户管理</a>
+								<a href="javascript:;" onclick="pageView('home/userList.do?superAdmin_id=${sysuser.id}');"><i class="icon-check"></i>用户管理</a>
 							</li>
 							<li>
 								<a href="javascript:;"><i class="icon-check"></i>险种设置</a>

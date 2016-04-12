@@ -152,14 +152,14 @@ public class CommonUtil {
 		
 		return fidldValue;
 	}
-	public static String format(String msg ,String... params) {
+	public static String format(String msg ,Object... params) {
 		if(params==null||params.length<=0){
 			return msg;
 		}else{
 			String temp = msg;
 			for (int i = 0; i < params.length; i++) {
 				String holderStr = "{"+i+"}";
-				temp = temp.replace(holderStr, params[i]);
+				temp = temp.replace(holderStr, params[i]+"");
 			}
 			return temp;
 		}

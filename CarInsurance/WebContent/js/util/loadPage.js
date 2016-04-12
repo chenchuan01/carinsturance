@@ -1,4 +1,28 @@
-﻿/**loadPage*/
+﻿/**
+ * 空值占位符
+ */
+var NONE_VAL_FLAG = '';
+/**
+ * 值间占位
+ */
+var VAL_FLAG='-';
+/**
+ * 属性中从属属性分割符‘.’
+ */
+var FILED_SPLIT = '.';
+/**
+ * 多个属性分割符‘,’
+ */
+var FILEDS_SPLIT = ',';
+/**
+ * 配置多个值之间分隔符‘;’
+ */
+var CONFIG_VAL_SPLIT = ';';
+/**
+ * 配置映射分割符‘:’
+ */
+var CONFIG_TO_SPLIT = ':';
+/**loadPage*/
 $(function(){
 	loadPage();
 });

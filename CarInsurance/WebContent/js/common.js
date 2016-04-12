@@ -92,7 +92,7 @@ var $singledData= function(dataMap,filed){
  */
 var $getDataVal=function(dataMap,filed){
 	//特殊处理会员卡类型和赠送会籍单位
-	if(filed!=null&&filed!=""){
+	/*if(filed!=null&&filed!=""){
 		if(specialFileds.type==filed){
 			var type = dataMap[filed];
 			return g_cardType[type];
@@ -122,7 +122,7 @@ var $getDataVal=function(dataMap,filed){
 			}
 			return weekDays;
 		}
-	}
+	}/**/
 	return dataMap[filed];
 };
 /**
@@ -245,8 +245,14 @@ var save=function(formId){
 var deleteUrl;
 var deleteItem=function(url){
 	deleteUrl=url;
-	cfm("确认删除此条信息？",doDelete);
+	cfm("确认删除此条信息？",doDelete,closeMsg);
 };
 var doDelete=function(){
-	ajaxLoad(deleteUrl, {}, function(){page(1);});
+	ajaxData(
+	deleteUrl, 
+	{}, 
+	function(){
+		closeMsg();
+		page(1);
+	});
 };

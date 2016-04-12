@@ -44,7 +44,7 @@ public class HomeController {
 	@RequestMapping("/userList")
 	public String userList(Integer superAdmin_id){
 		LogUtil.info(getClass(), "用户管理，用户ID=>{0}", superAdmin_id);
-		return "custom/myInsurance";
+		return "sys/userList";
 	}
 	
 }

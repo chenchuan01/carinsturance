@@ -6,26 +6,26 @@
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-user"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Name" value="${user.name }" valid="requried">
+		  <input class="span2" id="name" type="text" placeholder="Name" name="name" value="${user.name }" valid="requried">
 		  <input type="hidden" name="id" value="${user.id }"/>
 		</div>
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="name">电话</label>
+    <label class="control-label" for="tel">电话</label>
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-tag"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Tel." value="${user.tel }">
+		  <input class="span2" id="tel" type="text" placeholder="Tel." name="tel" value="${user.tel }">
 		</div>
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="name">邮箱</label>
+    <label class="control-label" for="email">邮箱</label>
     <div class="controls">
       <div class="input-prepend">
 		  <span class="add-on"><i class="icon-envelope"></i></span>
-		  <input class="span2" id="name" type="text" placeholder="Email" value="${user.email }">
+		  <input class="span2" id="email" type="text" placeholder="Email" name="email" value="${user.email }">
 		</div>
     </div>
   </div>
