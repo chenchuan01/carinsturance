@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<script type="text/javascript">
-$(function(){
-	page(1);
-});
-</script>
 <h2>用户管理</h2>
 <div>
 <form id="search" class="form-search" action="sys/userPage.do" method="post">
-  <input type="text" class="input-medium search-query" placeholder="姓名"/>
-  <input type="text" class="input-medium search-query" placeholder="电话"/>
-  <input type="text" class="input-medium search-query" placeholder="登录账户"/>
+  <input type="text" class="input-medium search-query" name="name" placeholder="姓名"/>
+  <input type="text" class="input-medium search-query" name="tel" placeholder="电话"/>
+  <input type="text" class="input-medium search-query" name="userName" placeholder="登录账户"/>
   <button type="button" class="btn btn-info" onclick="page(1)">查询</button>
+  <button type="button" class="btn btn-success" onclick="win('新增用户', 'sys/newUser.do')">新增用户</button>
 </form>
 </div>
 <table class="table table-bordered table-striped">

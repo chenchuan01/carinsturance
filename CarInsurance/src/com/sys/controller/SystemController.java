@@ -66,7 +66,15 @@ public class SystemController extends BaseController {
 		PageResult<User> result = userService.pageQuery(params);
 		return result;
 	}
-
+	@RequestMapping("newUser")
+	public String newUser(){
+		return "sys/newUser";
+	}
+	@RequestMapping("addUser")
+	public @ResponseBody User addUser(User user){
+		userService.userRegist(user);
+		return user;
+	}
 	/**
 	 * ”√ªßœÍ«È
 	 * 
@@ -130,10 +138,10 @@ public class SystemController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "userDelete")
-	public String userDelete(Integer id) {
+	public @ResponseBody User userDelete(Integer id) {
 		User user = userService.findById(id);
 		userService.deleteEntity(user);
-		return "redirect:/sys/userList.do";
+		return user;
 	}
 
 	/**

@@ -245,14 +245,12 @@ var save=function(formId){
 var deleteUrl;
 var deleteItem=function(url){
 	deleteUrl=url;
-	cfm("确认删除此条信息？",doDelete,closeMsg);
+	cfm("确认删除此条信息？",doDelete,closeInfo);
 };
 var doDelete=function(){
-	ajaxData(
-	deleteUrl, 
-	{}, 
-	function(){
-		closeMsg();
-		page(1);
-	});
+	ajaxData(deleteUrl,{},closeAndRefresh);
+};
+var closeAndRefresh=function(){
+	closeInfo();
+	page(1);
 };

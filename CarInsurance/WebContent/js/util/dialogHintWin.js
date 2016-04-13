@@ -106,10 +106,13 @@ var msg= function(title,msgStr,success,cancle){
 		$('#errBtn').click(function(){cancle();});
 	}
 	if(typeof(success)!='function'&&typeof(cancle)=='function'){
-		$('#closeBtn').click(closeMsg);
+		$('#closeBtn').click(closeInfo);
 	}
 };
 var closeMsg=function(){
 	var modalId = "#formModal";
 	$(modalId).modal('hide');
+};
+var closeInfo=function(){
+	$('#msgModal').modal('hide');
 };

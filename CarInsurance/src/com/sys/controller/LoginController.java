@@ -30,7 +30,6 @@ import com.sys.db.service.UserService;
 @RequestMapping("/login")
 public class LoginController extends BaseController {
 	private static final String LOGINPAGE = "login/login";
-	private static final String REGISTPAGE = "login/regist";
 	private static final String TO_INDEX = "redirect:/home.do";
 	@Resource
 	UserService userService;
