@@ -1,9 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@include file="../base/taglib.jspf" %>
 <h2>投保查询</h2>
 <div>
 <form id="search" class="form-search" action="insur/insurRecordPage.do" method="post">
-  <input type="hidden" name="user_id" value=""/>
+  <select class="input-middle" name="user_id">
+  <option value="">车主姓名查询</option>
+  	<c:forEach items="${userList }" var="user">
+  	<option value="${user.id }">${user.name }</option>
+  	</c:forEach>
+  </select>
+   <select class="input-middle" name="type_id">
+   <option value="">保险种类查询</option>
+  	<c:forEach items="${typeList }" var="type">
+  	<option value="${type.id }">${type.typename }</option>
+  	</c:forEach>
+  </select>
   <button type="button" class="btn btn-primary" onclick="page(1)">查询</button>
 </form>
 </div>

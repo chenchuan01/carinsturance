@@ -3,7 +3,7 @@
 <%@include file="../base/taglib.jspf" %>
 <script type="text/javascript">
 $(function(){
-	loadMyCarInfos();
+	loadMyCarInfos('${sysuser.id}');
 });
 </script>
 <c:set var="ctx" value="${pageContext.request.contextPath }"/>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@include file="../base/taglib.jspf" %>
+<form id="passCheck" action="cancel/passCheck.do" method="post">
+<input type="hidden" name="id" value="${cancel.id}"/>
 <table class="table table-bordered">
 	
 	<tbody>
@@ -15,10 +17,9 @@
 			<th >申请理由</th>
 			<td colspan="3">${cancel.reason }</td>
 		</tr>
-		<sys:auth opreat="${op_admin }" roles="${sysuser.roles }">
 		<tr>
-			<td colspan="4"><button type="button" class="btn btn-primary" onclick="passCheck('cancel/passCheck.do?id=${cancel.id}')">通过审核</button></td>
+			<td colspan="4"><button type="button" class="btn btn-primary btn-block" onclick="valid('#passCheck',saveCancelPass)">通过审核</button></td>
 		</tr>
-		</sys:auth>
 	</tbody>
 </table>
+</form>

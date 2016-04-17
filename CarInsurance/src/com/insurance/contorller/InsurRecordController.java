@@ -25,6 +25,7 @@ import com.sys.base.dto.PageResult;
 import com.sys.base.dto.QueryParam;
 import com.sys.common.AppExpection;
 import com.sys.common.LogConstants;
+import com.sys.common.util.AuthUtil;
 import com.sys.common.util.DateUtil;
 import com.sys.common.util.LogUtil;
 import com.sys.common.util.SessionUtil;
@@ -66,6 +67,32 @@ public class InsurRecordController extends BaseController {
 		m.addAttribute("type", typeService.findById(type_id));
 		m.addAttribute("today", DateUtil.getToday());
 		return "insurance/handleInsur";
+	}
+	@RequestMapping(value="saveChange")
+	public @ResponseBody InsurRecord saveChange(Integer insur_id,Integer user_id,Integer car_id) throws AppExpection{
+		InsurRecord dbRecord = insurRecordService.findById(insur_id);
+		dbRecord.setUser_id(user_id);
+		dbRecord.setCar_id(car_id);
+		insurRecordService.updateEntity(dbRecord);
+		return dbRecord;
+	}
+	@RequestMapping(value = "changeForm")
+	public String changeForm(Integer insur_id,Model m) {
+		InsurRecord record = insurRecordService.findById(insur_id);
+		m.addAttribute("info", record);
+		m.addAttribute("host", userService.findById(record.getUser_id()));
+		m.addAttribute("car", carInfoService.findById(record.getCar_id()));
+		m.addAttribute("type", typeService.findById(record.getType_id()));
+		User query = new User();
+		query.setRoles(AuthUtil.AU_USER);
+		List<User> list = new ArrayList<User>();
+		for (User user : userService.find(query)) {
+			if(record.getUser_id()!=user.getId()){
+				list.add(user);
+			}
+		}
+		m.addAttribute("userList", list);
+		return "insurance/changeForm";
 	}
 	@RequestMapping(value = "viewInsur")
 	public String  detailInsur(Integer id,Model m){

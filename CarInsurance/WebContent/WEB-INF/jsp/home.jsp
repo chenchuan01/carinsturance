@@ -37,16 +37,16 @@
 									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">保险管理 <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li>
-											<a href="insuranceCancel.html"><i class="icon-check"></i> 投保查询</a>
+											<a href="javascript:;" onclick="pageView('home/insurList.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 投保查询</a>
 										</li>
 										<li>
-											<a href="insuranceCancel.html"><i class="icon-check"></i> 报险管理</a>
+											<a href="javascript:;" onclick="pageView('home/insurTips.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 报险管理</a>
 										</li>
 										<li>
-											<a href="insuranceCancel.html"><i class="icon-check"></i> 保险过户</a>
+											<a href="javascript:;" onclick="pageView('home/insurChange.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 保险过户</a>
 										</li>
 										<li>
-											<a href="insuranceCancel.html"><i class="icon-check"></i> 撤保审核</a>
+											<a href="javascript:;" onclick="pageView('home/cancelCheck.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 撤保审核</a>
 										</li>
 									</ul>
 								</li>
@@ -104,16 +104,16 @@
 								保险管理
 							</li>
 							<li id="insListNav">
-								<a href="insuranceCancel.html"><i class="icon-check"></i> 投保查询</a>
+								<a href="javascript:;" onclick="pageView('home/insurList.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 投保查询</a>
 							</li>
 							<li>
-								<a href="insuranceCancel.html"><i class="icon-check"></i> 报险管理</a>
+								<a href="javascript:;" onclick="pageView('home/insurTips.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 报险管理</a>
 							</li>
 							<li>
-								<a href="insuranceCancel.html"><i class="icon-check"></i> 保险过户</a>
+								<a href="javascript:;" onclick="pageView('home/insurChange.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 保险过户</a>
 							</li>
 							<li>
-								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤保审核</a>
+								<a href="javascript:;" onclick="pageView('home/cancelCheck.do?admin_id=${sysuser.id}');"><i class="icon-check"></i> 撤保审核</a>
 							</li>
 							</sys:auth>
 							<sys:auth opreat="${op_sys }" roles="${sysuser.roles }">

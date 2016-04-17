@@ -3,6 +3,7 @@ package com.insurance.db;
 import com.insurance.db.entity.CancelInsur;
 import com.insurance.db.entity.CarInfo;
 import com.insurance.db.entity.InsurRecord;
+import com.insurance.db.entity.InsurTips;
 import com.insurance.db.entity.Type;
 import com.sys.db.entity.User;
 
@@ -19,12 +20,21 @@ public class InsurRecordVo {
 	private Type type;
 	
 	private CancelInsur cancel;
+	
+	private InsurTips tips;
+	
+	
+
 	public InsurRecord getInfo() {
 		return info;
 	}
 
 	public void setInfo(InsurRecord info) {
 		this.info = info;
+	}
+
+	public void setTips(InsurTips tips) {
+		this.tips = tips;
 	}
 
 	public User getUser() {
@@ -58,6 +68,11 @@ public class InsurRecordVo {
 	public void setCancel(CancelInsur cancel) {
 		this.cancel = cancel;
 	}
+
+	public InsurTips getTips() {
+		return tips;
+	}
+
 	
 	
 }

@@ -37,6 +37,60 @@ var initOther=function(){
     
     navsetActive();
 };
+var selectUserCars=function(){
+	var option = '<option value="#car_id">#car_plate</option>';
+	$('#selectUser').change(function(){
+		var userId=$(this).val();
+		ajaxData('car/myCarInfos.do',{custom_id:userId},function(data){
+			var options = '';
+			for(var i=0;i<data.length;i++){
+				var car = data[i];
+				options=options+option.replace("#car_id", car.id).replace("#car_plate", car.platenum);
+				$('#selectCar').html(options);
+			}
+		});
+	});
+};
+var saveInsurTips=function(formId){
+	var params = getParams(formId);
+	ajaxData(getUrl(formId),params,function(data){
+		$('#formModal').modal('hide');
+		cfm('保存修改成功!',function(){
+			$('#msgModal').modal('hide');
+			pageView('home/insurTips.do?admin_id='+sysuerId);
+		});
+	});
+};
+var saveCancelPass=function(formId){
+	var params = getParams(formId);
+	ajaxData(getUrl(formId),params,function(data){
+		$('#formModal').modal('hide');
+		cfm('保存修改成功!',function(){
+			$('#msgModal').modal('hide');
+			pageView('home/cancelCheck.do?admin_id='+sysuerId);
+		});
+	});
+};
+var saveInsurChange=function(formId){
+	var params = getParams(formId);
+	ajaxData(getUrl(formId),params,function(data){
+		$('#formModal').modal('hide');
+		cfm('保存修改成功!',function(){
+			$('#msgModal').modal('hide');
+			pageView('home/insurChange.do?admin_id='+sysuerId);
+		});
+	});
+};
+var saveCarInfo=function(formId){
+	var params = getParams(formId);
+	ajaxData(getUrl(formId),params,function(data){
+		$('#formModal').modal('hide');
+		cfm('保存修改成功!',function(){
+			$('#msgModal').modal('hide');
+			loadMyCarInfos(sysuerId);
+		});
+	});
+};
 var saveCancel=function(formId){
 	var params = getParams(formId);
 	ajaxData(getUrl(formId),params,function(data){

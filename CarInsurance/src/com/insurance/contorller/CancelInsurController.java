@@ -35,6 +35,17 @@ public class CancelInsurController extends BaseController {
 	@Resource
 	InsurRecordService insurRecordService;
 	
+	@RequestMapping(value="passCheck")
+	public @ResponseBody CancelInsur passCheck(Integer id) throws AppExpection{
+		CancelInsur dbCancel = cancelInsurService.findById(id);
+		dbCancel.setPasstime(DateUtil.getNow());
+		dbCancel.setRemarks(BusConstans.INSUR_STATUS_PASSCHECK);
+		cancelInsurService.updateEntity(dbCancel);
+		InsurRecord insurRecord= insurRecordService.findById(dbCancel.getInsur_id());
+		insurRecord.setStatus(BusConstans.INSUR_STATUS_PASSCHECK);
+		insurRecordService.updateEntity(insurRecord);
+		return dbCancel;
+	}
 	@RequestMapping(value="newCancel")
 	public @ResponseBody CancelInsur newCancel(CancelInsur cancelInsur) throws AppExpection{
 		InsurRecord insurRecord = insurRecordService.findById(cancelInsur.getInsur_id());
@@ -47,10 +58,18 @@ public class CancelInsurController extends BaseController {
 	}
 	@RequestMapping(value="view")
 	public String view(Integer insur_id,Model m){
+		cancelrecord(insur_id, m);
+		return "cancel/viewCancel";
+	}
+	@RequestMapping(value="viewCheck")
+	public String viewCheck(Integer insur_id,Model m){
+		cancelrecord(insur_id, m);
+		return "cancel/checkCancel";
+	}
+	private void cancelrecord(Integer insur_id, Model m) {
 		CancelInsur query = new CancelInsur();
 		query.setInsur_id(insur_id);
 		m.addAttribute("cancel", cancelInsurService.findEntity(query));
-		return "cancel/viewCancel";
 	}
 	@RequestMapping(value="handle")
 	public String handle(Integer insur_id,Model m){

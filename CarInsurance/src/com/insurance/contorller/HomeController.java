@@ -1,5 +1,8 @@
 package com.insurance.contorller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -7,10 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.SpringContextHolder;
+import com.insurance.db.entity.CancelInsur;
 import com.insurance.db.entity.InsurRecord;
+import com.insurance.db.service.CancelInsurService;
 import com.insurance.db.service.InsurRecordService;
 import com.insurance.db.service.TypeService;
+import com.sys.common.util.AuthUtil;
 import com.sys.common.util.LogUtil;
+import com.sys.common.util.StringUtil;
+import com.sys.db.entity.User;
+import com.sys.db.service.UserService;
 
 /**
  *HomeController.java
@@ -22,6 +31,10 @@ public class HomeController {
 	TypeService typeService;
 	@Resource
 	InsurRecordService insurRecordService;
+	@Resource
+	CancelInsurService cancelInsurService;
+	@Resource
+	UserService userService;
 	/**
 	 * 车险首页
 	 * @return
@@ -67,9 +80,69 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping("/insurList")
-	public String insuranceList(Integer admin_id){
+	public String insuranceList(Integer admin_id,Model m){
 		LogUtil.info(getClass(), "投保查询，用户ID=>{0}", admin_id);
+		loadInsurQuery(m);
 		return "insurance/insurQuery";
+	}
+	/**
+	 * 报险管理
+	 * @return
+	 */
+	@RequestMapping("/insurTips")
+	public String insurTips(Integer admin_id,Model m){
+		LogUtil.info(getClass(), "报险管理，用户ID=>{0}", admin_id);
+		loadInsurQuery(m);
+		return "insurance/insurTips";
+	}
+	/**
+	 * 保险过户
+	 * @return
+	 */
+	@RequestMapping("/insurChange")
+	public String insurChange(Integer admin_id,Model m){
+		LogUtil.info(getClass(), "保险过户，用户ID=>{0}", admin_id);
+		InsurRecordController insur = (InsurRecordController)SpringContextHolder.getBean("insurRecordController");
+		List<InsurRecord> list = insurRecordService.findAllEntity();
+		List<InsurRecord> cancelList= new ArrayList<InsurRecord>();
+		for (InsurRecord insurRecord : list) {
+			CancelInsur query = new CancelInsur();
+			query.setInsur_id(insurRecord.getId());
+			CancelInsur rslt = cancelInsurService.findEntity(query);
+			if(!rslt.notNull()){
+				cancelList.add(insurRecord);
+			}
+		}
+		loadInsurQuery(m);
+		m.addAttribute("list",insur.genInsurRecordVo(cancelList));
+		return "insurance/insurChange";
+	}
+	private void loadInsurQuery(Model m) {
+		User query = new User();
+		query.setRoles(AuthUtil.AU_USER);
+		m.addAttribute("userList", userService.find(query));
+		m.addAttribute("typeList", typeService.findAllEntity());
+	}
+	/**
+	 * 撤保审核
+	 * @return
+	 */
+	@RequestMapping("/cancelCheck")
+	public String cancelCheck(Integer admin_id,Model m){
+		LogUtil.info(getClass(), "撤保审核，用户ID=>{0}", admin_id);
+		InsurRecordController insur = (InsurRecordController)SpringContextHolder.getBean("insurRecordController");
+		List<InsurRecord> list = insurRecordService.findAllEntity();
+		List<InsurRecord> cancelList= new ArrayList<InsurRecord>();
+		for (InsurRecord insurRecord : list) {
+			CancelInsur query = new CancelInsur();
+			query.setInsur_id(insurRecord.getId());
+			CancelInsur rslt = cancelInsurService.findEntity(query);
+			if(rslt.notNull()&&StringUtil.isNull(rslt.getPasstime())){
+				cancelList.add(insurRecord);
+			}
+		}
+		m.addAttribute("list",insur.genInsurRecordVo(cancelList));
+		return "insurance/cancelCheck";
 	}
 	/**
 	 * 险种设置
