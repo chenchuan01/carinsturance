@@ -176,6 +176,15 @@ function setContent(html){
 	page(1);
 	bootstrapInit();
 }
+function loadFristPage(id,roles){
+	if(sysRole.user==roles){
+		pageView('home/myInsurance.do?custom_id='+id);
+	}else if(sysRole.admin==roles){
+		pageView('home/insuranceList.do?admin_id='+id);
+	}else if(sysRole.superAdmin==roles){
+		pageView('home/userList.do?superAdmin_id='+id);
+	}
+}
 /************Test DATA**************/
 var showTest=function(){
 	$(".dataTest").toggle();

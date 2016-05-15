@@ -14,16 +14,23 @@ var ajaxData = function(url,dataArry,sucfun,errFun){
 		}
 	});
 };
+var loadToggle=function(){
+	$('#load').toggle(50);
+	
+};
 var ajaxHtml= function(url,dataArry,sucfun,errFun){
+	loadToggle();
 	$.ajax({
 		type:"POST",
 		url:url,
 		data:dataArry,
 		dataType:"html",
 		success:function(data){
+			loadToggle();
 			commonSuc(data,sucfun);
 		},
 		error:function(data){
+			loadToggle();
 			commonErr(data, errFun);
 		}
 	});
