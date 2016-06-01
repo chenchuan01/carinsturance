@@ -27,18 +27,6 @@ public class AuthUtil {
 	
 	/***************操作类型********************/
 	/**
-	 * 前台操作
-	 */
-	public static final String OP_OPERA="opera";
-	/**
-	 * 信息查看
-	 */
-	public static final String OP_INF="inf";
-	/**
-	 * 删除操作
-	 */
-	public static final String OP_DEL="del";
-	/**
 	 * 系统操作
 	 */
 	public static final String OP_SYS="sys";
@@ -46,6 +34,8 @@ public class AuthUtil {
 	 * 前台特有
 	 */
 	public static final String OP_FRONT="front";
+	
+	public static final String OP_ADMIN="admin";
 
 	/**
 	 * 判断是否具有操作权限

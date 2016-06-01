@@ -179,10 +179,13 @@ function setContent(html){
 function loadFristPage(id,roles){
 	if(sysRole.user==roles){
 		pageView('home/myInsurance.do?custom_id='+id);
+		$('#myInsNav').click();
 	}else if(sysRole.admin==roles){
 		pageView('home/insuranceList.do?admin_id='+id);
+		$('#insListNav').click();
 	}else if(sysRole.superAdmin==roles){
 		pageView('home/userList.do?superAdmin_id='+id);
+		$('#userListNav').click();
 	}
 }
 /************Test DATA**************/

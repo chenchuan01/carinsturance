@@ -1,8 +1,11 @@
 package com.insurance.db.entity;
+
+import com.sys.base.BaseEntity;
+
 /**
  *CarInfo.java
  */
-public class CarInfo {
+public class CarInfo extends BaseEntity{
 	private String platenum;//车牌
 	
 	private String enginenum;//发动机号

@@ -37,6 +37,23 @@ var initOther=function(){
     
     navsetActive();
 };
+/**
+ * 加载查询我的车辆
+ */
+var loadMyCarInfos=function(user_id){
+	ajaxData('car/myCarInfos.do',{custom_id:user_id},
+			function(data){
+		var option = "<option value='#carId'>#carPlate</option>";
+		var optsHtml = "";
+		if(data&&data.length>0){
+			for(var i=0;i<data.length;i++){
+				var car = data[i];
+				optsHtml = optsHtml+option.replace('#cardId', car.id).replace('#carPlate', car.platenum);
+			}
+			$('#myCarInfos').html(optsHtml);
+		}
+	});
+};
 var navsetActive=function(){
 	$('.nav li').click(function(){
 		$('.nav li').removeClass('active');
@@ -118,11 +135,11 @@ var pageFun=function(data){
 var loadPagesItem=function(total){
 	total = total=='undefined'?0:total;
 	if(total>0){
-		var itemHtml='<li><a href="javascript:;" onclick="prePage()">Prev</a></li>';
+		var itemHtml='<li><a href="javascript:;" onclick="prePage()">&lt;&lt;</a></li>';
 		for(var i =1;i<=total;i++){
 			itemHtml = itemHtml+pageHtml.replace('%page%', i).replace('%page%', i).replace('%page%', i);
 		}
-		itemHtml = itemHtml+'<li><a href="javascript:;" onclick="nextPage()">Next</a></li>';
+		itemHtml = itemHtml+'<li><a href="javascript:;" onclick="nextPage()">&gt;&gt;</a></li>';
 		setPageItems(itemHtml);
 	};
 };

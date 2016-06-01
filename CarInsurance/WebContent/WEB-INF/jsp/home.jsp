@@ -16,21 +16,57 @@
 						</a> <a class="brand" href="#">汽车保险</a>
 						<div class="nav-collapse">
 							<ul class="nav">
+								<sys:auth opreat="${op_front }" roles="${sysuser.roles }">
 								<li class="dropdown">
 									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">我的保险 <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li class="active">
+										<li>
 											<a href="javascript:;" onclick="pageView('home/myInsurance.do?custom_id=${sysuser.id}');">我的车保</a>
 										</li>
 										<li>
-											<a href="insuranceSale.html">购买保险</a>
+											<a href="javascript:;" onclick="pageView('home/insurSale.do?custom_id=${sysuser.id}');">购买保险</a>
 										</li>
 										<li>
-											<a href="insuranceCancel.html">撤销投保</a>
+											<a href="javascript:;" onclick="pageView('home/insurCancel.do?custom_id=${sysuser.id}');">撤销投保</a>
 										</li>
 									</ul>
 								</li>
-								
+								</sys:auth>
+								<sys:auth opreat="${op_admin }" roles="${sysuser.roles }">
+								<li class="dropdown">
+									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">保险管理 <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="insuranceCancel.html"><i class="icon-check"></i> 投保查询</a>
+										</li>
+										<li>
+											<a href="insuranceCancel.html"><i class="icon-check"></i> 报险管理</a>
+										</li>
+										<li>
+											<a href="insuranceCancel.html"><i class="icon-check"></i> 保险过户</a>
+										</li>
+										<li>
+											<a href="insuranceCancel.html"><i class="icon-check"></i> 撤保审核</a>
+										</li>
+									</ul>
+								</li>
+								</sys:auth>
+								<sys:auth opreat="${op_sys }" roles="${sysuser.roles }">
+								<li class="dropdown">
+									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">系统功能 <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="javascript:;" onclick="pageView('home/userList.do?superAdmin_id=${sysuser.id}');"><i class="icon-user"></i>用户管理</a>
+										</li>
+										<li>
+											<a href="javascript:;" onclick="pageView('home/typeList.do?superAdmin_id=${sysuser.id}');"><i class="icon-edit"></i>险种设置</a>
+										</li>
+										<li>
+											<a href="javascript:;" onclick="pageView('home/configList.do?superAdmin_id=${sysuser.id}');"><i class="icon-cog"></i>系统配置</a>
+										</li>
+									</ul>
+								</li>
+								</sys:auth>
 							</ul>
 							<ul class="nav pull-right">
 								<li>
@@ -48,22 +84,26 @@
 				<div class="span3">
 					<div class="well" style="padding: 8px 0;">
 						<ul class="nav nav-list">
+							
+							<sys:auth opreat="${op_front }" roles="${sysuser.roles }">
 							<li class="nav-header">
 								汽车保险
 							</li>
-							<li class="active">
-								<a href="javascript:;" onclick="pageView('home/myInsurance.do?custom_id=${sysuser.id}');"><i class="icon-home"></i> 我的车保</a>
+							<li id="myInsNav">
+								<a href="javascript:;" onclick="pageView('home/myInsurance.do?custom_id=${sysuser.id}');">我的车保</a>
 							</li>
 							<li>
-								<a href="insuranceSale.html"><i class="icon-folder-open"></i> 购买保险</a>
+								<a href="javascript:;" onclick="pageView('home/insurSale.do?custom_id=${sysuser.id}');">购买保险</a>
 							</li>
 							<li>
-								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤销投保</a>
+								<a href="javascript:;" onclick="pageView('home/insurCancel.do?custom_id=${sysuser.id}');">撤销投保</a>
 							</li>
+							</sys:auth>
+							<sys:auth opreat="${op_admin }" roles="${sysuser.roles }">
 							<li class="nav-header">
 								保险管理
 							</li>
-							<li>
+							<li id="insListNav">
 								<a href="insuranceCancel.html"><i class="icon-check"></i> 投保查询</a>
 							</li>
 							<li>
@@ -75,18 +115,21 @@
 							<li>
 								<a href="insuranceCancel.html"><i class="icon-check"></i> 撤保审核</a>
 							</li>
+							</sys:auth>
+							<sys:auth opreat="${op_sys }" roles="${sysuser.roles }">
 							<li class="nav-header">
 								系统功能
 							</li>
-							<li>
-								<a href="javascript:;" onclick="pageView('home/userList.do?superAdmin_id=${sysuser.id}');"><i class="icon-check"></i>用户管理</a>
+							<li id="userListNav">
+								<a href="javascript:;" onclick="pageView('home/userList.do?superAdmin_id=${sysuser.id}');"><i class="icon-user"></i>用户管理</a>
 							</li>
 							<li>
-								<a href="javascript:;"><i class="icon-check"></i>险种设置</a>
+								<a href="javascript:;" onclick="pageView('home/typeList.do?superAdmin_id=${sysuser.id}');"><i class="icon-edit"></i>险种设置</a>
 							</li>
 							<li>
-								<a href="javascript:;"><i class="icon-check"></i>系统配置</a>
+								<a href="javascript:;" onclick="pageView('home/configList.do?superAdmin_id=${sysuser.id}');"><i class="icon-cog"></i>系统配置</a>
 							</li>
+							</sys:auth>
 							<li class="nav-header">
 								系统账户
 							</li>
