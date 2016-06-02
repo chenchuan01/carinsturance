@@ -16,5 +16,6 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <script>
 var basePath = '<%=basePath%>';
+var sysuerId = '${sysuser.id}'
 </script>
 <%@include file="styles.jspf"%>

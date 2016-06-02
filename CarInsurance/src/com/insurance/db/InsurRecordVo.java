@@ -1,5 +1,6 @@
 package com.insurance.db;
 
+import com.insurance.db.entity.CancelInsur;
 import com.insurance.db.entity.CarInfo;
 import com.insurance.db.entity.InsurRecord;
 import com.insurance.db.entity.Type;
@@ -16,7 +17,8 @@ public class InsurRecordVo {
 	private CarInfo car;
 	
 	private Type type;
-
+	
+	private CancelInsur cancel;
 	public InsurRecord getInfo() {
 		return info;
 	}
@@ -47,6 +49,14 @@ public class InsurRecordVo {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+	public CancelInsur getCancel() {
+		return cancel;
+	}
+
+	public void setCancel(CancelInsur cancel) {
+		this.cancel = cancel;
 	}
 	
 	

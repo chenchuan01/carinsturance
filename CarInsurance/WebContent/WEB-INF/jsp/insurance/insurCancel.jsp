@@ -1,149 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<h2>撤销投保</h2>
+<%@include file="../base/taglib.jspf" %>
+<h2>撤销车保</h2>
+<div>
+</div>
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
-			<th>
-				车辆
-			</th>
-			<th>
-				险种
-			</th>
-			<th>
-				投保日期
-			</th>
-			<th>
-				有效期
-			</th>
-			<th>
-				状态
-			</th>
-			<th>
-				操作
-			</th>
+			<th>车辆</th>
+			<th>投保日期</th>
+			<th>险种</th>
+			<th>有效期</th>
+			<th>状态</th>
+			<th>操作</th>
 		</tr>
 	</thead>
 	<tbody>
+		<c:forEach items="${list }" var="vo">
 		<tr>
+			<td>${vo.car.platenum }</td>
+			<td>${vo.info.creatime }</td>
+			<td>${vo.type.typename }</td>
+			<td>${vo.type.expdate }年</td>
+			<td>${vo.info.status }</td>
 			<td>
-				京A:00001
-			</td>
-			<td>
-				意外险
-			</td>
-			<td>
-				2016-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				保险生效
-			</td>
-			<td>
-				<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
+				<c:choose>
+					<c:when test="${not empty vo.cancel.id }">
+						<a href="javascript:;" class="btn btn-warning" onclick="win('撤保详情','cancel/view.do?insur_id=${vo.info.id}')">查看详细</a>
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:;" class="btn btn-primary" onclick="win('申请撤保','cancel/handle.do?insur_id=${vo.info.id}')">申请撤保</a>
+					</c:otherwise>
+				</c:choose>
 			</td>
 		</tr>
-		<tr>
-			<td>
-				京A:00001
-			</td>
-			<td>
-				划痕险
-			</td>
-			<td>
-				2012-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				已撤销
-			</td>
-			<td>
-				<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				京A:00001
-			</td>
-			<td>
-				较强险
-			</td>
-			<td>
-				2016-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				保险生效
-			</td>
-			<td>
-				<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				京A:00001
-			</td>
-			<td>
-				划痕险
-			</td>
-			<td>
-				2012-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				已撤销
-			</td>
-			<td>
-				<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				京A:00001
-			</td>
-			<td>
-				自燃险
-			</td>
-			<td>
-				2016-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				保险生效
-			</td>
-			<td>
-				<a href="#cancelModal" class="view-link" data-toggle="modal" >申请撤销</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				京A:00001
-			</td>
-			<td>
-				划痕险
-			</td>
-			<td>
-				2012-01-08
-			</td>
-			<td>
-				1年
-			</td>
-			<td>
-				已撤销
-			</td>
-			<td>
-				<a href="#detailModal" class="view-link" data-toggle="modal">查看详细</a>
-			</td>
-		</tr>
+		</c:forEach>
+		
 	</tbody>
 </table>

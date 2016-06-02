@@ -181,7 +181,7 @@ function loadFristPage(id,roles){
 		pageView('home/myInsurance.do?custom_id='+id);
 		$('#myInsNav').click();
 	}else if(sysRole.admin==roles){
-		pageView('home/insuranceList.do?admin_id='+id);
+		pageView('home/insurList.do?admin_id='+id);
 		$('#insListNav').click();
 	}else if(sysRole.superAdmin==roles){
 		pageView('home/userList.do?superAdmin_id='+id);
@@ -244,6 +244,7 @@ var save=function(formId){
 		});
 	});
 };
+
 /************DELETE DATA**************/
 var deleteUrl;
 var deleteItem=function(url){

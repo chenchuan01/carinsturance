@@ -37,6 +37,37 @@ var initOther=function(){
     
     navsetActive();
 };
+var saveCancel=function(formId){
+	var params = getParams(formId);
+	ajaxData(getUrl(formId),params,function(data){
+		$('#formModal').modal('hide');
+		cfm('保存修改成功!',function(){
+			$('#msgModal').modal('hide');
+			pageView('cancel/cancelInsurList.do?custom_id='+sysuerId);
+		});
+	});
+};
+var payInsur=function(userId,carId,typeId){
+	var params={
+		user_id:userId,
+		car_id:carId,
+		type_id:typeId
+	};
+	ajaxData('insur/payInsur.do',params,function(){
+		closeMsg();
+		cfm('购买保险成功！',function(){closeInfo();});
+	});
+};
+var handleInsur=function(user_id,insur_id){
+	var params={
+		custom_id:user_id,
+		carInfo_id:$('#myCarInfos').val(),
+		type_id:insur_id
+	};
+	win('购买保险', 'insur/handleInsur.do?custom_id='+params.custom_id
+			+'&carInfo_id='+params.carInfo_id
+			+'&type_id='+params.type_id);
+};
 /**
  * 加载查询我的车辆
  */
@@ -48,7 +79,7 @@ var loadMyCarInfos=function(user_id){
 		if(data&&data.length>0){
 			for(var i=0;i<data.length;i++){
 				var car = data[i];
-				optsHtml = optsHtml+option.replace('#cardId', car.id).replace('#carPlate', car.platenum);
+				optsHtml = optsHtml+option.replace('#carId', car.id).replace('#carPlate', car.platenum);
 			}
 			$('#myCarInfos').html(optsHtml);
 		}

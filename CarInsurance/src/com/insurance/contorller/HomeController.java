@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.SpringContextHolder;
+import com.insurance.db.entity.InsurRecord;
+import com.insurance.db.service.InsurRecordService;
 import com.insurance.db.service.TypeService;
 import com.sys.common.util.LogUtil;
 
@@ -17,6 +20,8 @@ import com.sys.common.util.LogUtil;
 public class HomeController {
 	@Resource
 	TypeService typeService;
+	@Resource
+	InsurRecordService insurRecordService;
 	/**
 	 * 车险首页
 	 * @return
@@ -49,8 +54,12 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping("/insurCancel")
-	public String insurCancel(Integer custom_id){
+	public String insurCancel(Integer custom_id,Model m){
 		LogUtil.info(getClass(), "撤销投保，用户ID=>{0}", custom_id);
+		InsurRecord query = new InsurRecord();
+		query.setUser_id(custom_id);
+		InsurRecordController insur = (InsurRecordController)SpringContextHolder.getBean("insurRecordController");
+		m.addAttribute("list",insur.genInsurRecordVo(insurRecordService.find(query)));
 		return "insurance/insurCancel";
 	}
 	/**
@@ -60,7 +69,7 @@ public class HomeController {
 	@RequestMapping("/insurList")
 	public String insuranceList(Integer admin_id){
 		LogUtil.info(getClass(), "投保查询，用户ID=>{0}", admin_id);
-		return "custom/myInsurance";
+		return "insurance/insurQuery";
 	}
 	/**
 	 * 险种设置

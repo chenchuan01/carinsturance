@@ -2,9 +2,6 @@
 	pageEncoding="utf-8"%>
 <%@include file="../base/taglib.jspf" %>
 <script type="text/javascript">
-var handleInsur=function(insur_id){
-	
-};
 $(function(){
 	loadMyCarInfos();
 });
@@ -33,7 +30,8 @@ $(function(){
 				<a href="javascript:;" data-toggle="tooltip" title="${type.remarks }"><h5>${type.typename }</h5></a>
 				<p><a class="btn btn-primary btn-small">RMB:${type.price }</a>
 				<a class="btn btn-success btn-small">保期：${type.expdate }年</a></p>
-				<p><a class="btn btn-warning btn-block" href="javascript:;" onclick="handleInsur(${type.id})">点击办理</a></p>
+				<p><a class="btn btn-warning btn-block" href="javascript:;" 
+				onclick="handleInsur('${sysuser.id }','${type.id}')">点击办理</a></p>
 			</div>
 		</div>
 	</li>
